@@ -34,15 +34,19 @@ class $modify(MyPlayLayer, PlayLayer) {
         PlayLayer::updateProgressbar();
 
         auto mod = Mod::get();
-        if (!mod->getSettingValue<bool>("enabled")) return;
         if (!this->m_percentageLabel) return;
+
+        if (!mod->getSettingValue<bool>("enabled")) {
+            this->m_percentageLabel->setScale(0.5f);
+            this->m_percentageLabel->setColor(ccc3(255, 255, 255));
+            return;
+        }
 
         float percent = this->getCurrentPercent();
         int decimals = (int)mod->getSettingValue<int64_t>("decimals");
 
         std::string format = "{:." + std::to_string(decimals) + "f}%";
         std::string text = fmt::format(fmt::runtime(format), percent);
-
         this->m_percentageLabel->setString(text.c_str());
 
         float scale = (float)mod->getSettingValue<double>("scale");
