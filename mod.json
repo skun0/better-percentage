@@ -1,0 +1,51 @@
+{
+	"geode": "5.3.0",
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
+	},
+	"id": "skuno.better-percentage",
+	"name": "Better Percentage",
+	"version": "v1.3.1",
+	"developer": "Skuno",
+	"description": "Enhances the in-game percentage display with high precision (up to 50 decimals), customizable scaling, and optional rainbow coloring. Designed to stay clean and fully integrated with the original Geometry Dash UI.",
+	"dependencies": {
+		"geode.node-ids": ">=v1.20.0"
+	},
+	"settings": {
+		"enabled": {
+			"type": "bool",
+			"name": "Enable Mod",
+			"default": true
+		},
+		"decimals": {
+			"type": "int",
+			"name": "Decimal Places",
+			"description": "Number of decimal digits shown in percentage",
+			"default": 2,
+			"min": 0,
+			"max": 50
+		},
+		"scale": {
+			"type": "float",
+			"name": "Percentage Text Scale",
+			"default": 0.5,
+			"min": 0.3,
+			"max": 2.0
+		},
+		"rainbow": {
+			"type": "bool",
+			"name": "Rainbow Mode",
+			"description": "Color changes with progress",
+			"default": false
+		},
+		"color": {
+			"type": "color",
+			"name": "Static Color",
+			"description": "Used when rainbow mode is disabled",
+			"default": "#ffffff"
+		}
+	}
+}
