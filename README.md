@@ -63,14 +63,6 @@ geode build
 
 ---
 
-## Credit
-
-Better Percentage is developed by:
-
-* Skuno
-
----
-
 ## Notes
 
 * The mod is designed to remain clean and non-intrusive
