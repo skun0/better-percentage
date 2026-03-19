@@ -5,7 +5,7 @@ Better Percentage is an open-source mod for Geometry Dash that enhances the in-g
 > [!WARNING]
 > This mod is under active development and may contain bugs or unexpected behavior. Use at your own risk and report any issues through the repository issues page.
 
-This version of Better Percentage supports Geode v5.3.0 and Geometry Dash 2.2081+.
+This version of Better Percentage supports Geode v5.3.0 and Geometry Dash 2.2081+
 
 ---
 
