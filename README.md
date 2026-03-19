@@ -53,9 +53,7 @@ Better Percentage is available on all platforms supported by Geode:
 
 ## Building
 
-For the most part, building is the same as any other Geode mod. See the official documentation:
-
-https://docs.geode-sdk.org/getting-started/cpp-stuff
+For the most part, building is the same as any other Geode mod. See the official [documentation](https://docs.geode-sdk.org/getting-started/cpp-stuff):
 
 Then run:
 
