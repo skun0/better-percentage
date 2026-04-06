@@ -11,6 +11,7 @@
 	"version": "v1.0.2",
 	"developer": "Skuno",
 	"description": "Enhances the in-game percentage display.",
+	"source": "https://github.com/skun0/better-percentage",
 	"dependencies": {
 		"geode.node-ids": ">=v1.20.0"
 	},
@@ -27,6 +28,12 @@
 			"default": 2,
 			"min": 0,
 			"max": 50
+		},
+		"golden": {
+    		"type": "bool",
+			"name": "Golden Percentage",
+			"description": "Turns percentage yellow when beating your best",
+			"default": true
 		},
 		"scale": {
 			"type": "float",

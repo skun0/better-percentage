@@ -30,6 +30,21 @@ ccColor3B hsvToRgb(float h) {
 }
 
 class $modify(MyPlayLayer, PlayLayer) {
+
+    float getRelativePercent() {
+        float current = this->getCurrentPercent();
+
+        if (this->m_startPos) {
+            float startX = this->m_startPos->getPosition().x;
+            float totalLength = this->m_levelLength;
+            float startPercent = (startX / totalLength) * 100.f;
+            float remaining = 100.f - startPercent;
+            return (remaining > 0.f) ? ((current - startPercent) / remaining * 100.f) : 0.f;
+        }
+
+        return current;
+    }
+
     void updateProgressbar() {
         PlayLayer::updateProgressbar();
 
@@ -42,7 +57,7 @@ class $modify(MyPlayLayer, PlayLayer) {
             return;
         }
 
-        float percent = this->getCurrentPercent();
+        float percent = getRelativePercent();
         int decimals = (int)mod->getSettingValue<int64_t>("decimals");
 
         std::string format = "{:." + std::to_string(decimals) + "f}%";
@@ -52,9 +67,17 @@ class $modify(MyPlayLayer, PlayLayer) {
         float scale = (float)mod->getSettingValue<double>("scale");
         this->m_percentageLabel->setScale(scale);
 
-        if (mod->getSettingValue<bool>("rainbow")) {
+        bool rainbow = mod->getSettingValue<bool>("rainbow");
+        bool golden = mod->getSettingValue<bool>("golden");
+
+        int best = this->m_level ? this->m_level->m_normalPercent : 0;
+
+        if (rainbow) {
             float hue = percent / 100.f;
             this->m_percentageLabel->setColor(hsvToRgb(hue));
+        }
+        else if (golden && percent > best) {
+            this->m_percentageLabel->setColor(ccc3(255, 215, 0));
         }
         else {
             this->m_percentageLabel->setColor(
